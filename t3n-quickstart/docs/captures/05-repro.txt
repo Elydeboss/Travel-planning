@@ -1,0 +1,13 @@
+BUG reproductions against @terminal3/t3n-sdk (testnet)
+
+FAIL  B-01 quickstart WITHOUT trustAnchor throws T3nConfigError -> T3nClient: `trustAnchor` is required and must be either a TrustAnchor ({ expected_peer_ids, rtmr3_allowlist }) that pins the node's DKG attestation, or the explicit opt-out { unsafe_trust_server: true }. The unsafe option disables attestation verification (local dev / mock-signer nodes only) — never use it against a real node.
+
+connected: did:t3n:6e5663db0316b7636b0a40366a81082fcbb22c99
+
+FAIL  B-03 tenant.me() does not exist -> tenant.me is not a function
+FAIL  B-02 TenantClient.maps.create fails (missing script_name) -> Invalid action request: missing field `script_name` at line 1 column 257
+PASS  B-02 workaround: TenantControl.createMap succeeds
+FAIL  B-04 getScriptVersion export missing -> getScriptVersion is not exported (only getContractVersion)
+PASS  B-04 fix: getContractVersion resolves
+
+Done.

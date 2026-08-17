@@ -1,0 +1,26 @@
+
+[1] Connect and authenticate
+   OK   tenantDid = did:t3n:6e5663db0316b7636b0a40366a81082fcbb22c99
+   OK   tenant status = active (label: testnet-dev), control contract v1.26.0
+
+[2] Register the WASM component
+   OK   read 197904 bytes from ../z-tenant-flight/target/wasm32-wasip2/release/z_tenant_flight.wasm
+   OK   contract-register
+   OK   registered z:6e5663db0316b7636b0a40366a81082fcbb22c99:travel-contracts as contract id 704
+   contracts now visible: {"contracts":["z:6e5663db0316b7636b0a40366a81082fcbb22c99:travel-contracts"]}
+
+[3] Create the secrets KV map and seed the Duffel key
+   OK   map-create z:6e5663db0316b7636b0a40366a81082fcbb22c99:secrets
+   OK   map-update (ensure ACL includes this contract)
+   WARN DUFFEL_API_KEY not set — seeding a placeholder so the read path is exercised
+   OK   map-entry-set duffel_api_key (placeholder)
+
+[4] Authorize the contract's egress
+   OK   resolve contract version
+   OK   z:6e5663db0316b7636b0a40366a81082fcbb22c99:travel-contracts @ 0.1.0
+   OK   agent-auth-update (self-grant)
+
+[5] Invoke search-offers
+   WARN search-offers -> contract error: Duffel offer-request failed: HTTP 401 — {"errors":[{"documentation_url":"https://duffel.com/docs/api/overview/response-handling","title":"Access token not found","type":"authentication_error","message":"The access token you have used is not a valid API access token","code":"access_token_not_found"}],"meta":{"request_id":"GMw5-Qmpw5M-0EAFcKOB","status":401}}
+
+Done.

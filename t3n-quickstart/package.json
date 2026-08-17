@@ -1,0 +1,22 @@
+{
+  "name": "t3n-quickstart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "quickstart": "npx tsx quickstart.ts",
+    "walkthrough": "npx tsx walkthrough.ts",
+    "session": "npx tsx session.ts",
+    "usecase": "npx tsx use-case.ts",
+    "repro": "npx tsx repro.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@terminal3/t3n-sdk": "^4.39.1",
+    "tsx": "^4.23.12"
+  }
+}

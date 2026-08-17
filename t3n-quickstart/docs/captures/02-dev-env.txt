@@ -1,0 +1,2 @@
+Connected as: did:t3n:6e5663db0316b7636b0a40366a81082fcbb22c99
+tenant status = active (label: testnet-dev), control contract v1.26.0

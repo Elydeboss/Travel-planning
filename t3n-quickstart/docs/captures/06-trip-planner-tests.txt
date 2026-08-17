@@ -1,0 +1,20 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.49s
+     Running unittests src/lib.rs (target/debug/deps/z_trip_planner-f2fd9a59c961d0cd)
+
+running 6 tests
+test itinerary::tests::get_rejects_bad_input ... ok
+test itinerary::tests::save_rejects_empty_ref ... ok
+test itinerary::tests::non_wasm_returns_err ... ok
+test itinerary::tests::save_rejects_bad_input ... ok
+test tests::contract_version_is_semver ... ok
+test tests::contract_version_matches_cargo ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+   Doc-tests z_trip_planner
+
+running 1 test
+test src/lib.rs - __export_trip_planner_impl (line 28) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.69s
+

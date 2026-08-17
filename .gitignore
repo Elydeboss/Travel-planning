@@ -1,0 +1,10 @@
+node_modules/
+.env
+.env.local
+*.log
+
+# Rust build artifacts
+**/target/
+
+# upstream reference clone (not part of this submission)
+z-tenant-flight/

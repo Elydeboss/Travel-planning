@@ -1,0 +1,44 @@
+/// z-trip-planner WIT world — an original tenant contract that stores and
+/// retrieves a traveler's itinerary plans inside the TEE.
+///
+/// Imports:
+///   - tenant-context:   tenant DID (used to build the z:<tid>: map name)
+///   - logging:          in-enclave logging
+///   - kv-store:         read/write/scan the `itineraries` KV map
+///
+/// Where the reference `z-tenant-flight` contract only READS the `secrets`
+/// map, this contract WRITES and SCANS a map of its own — demonstrating the
+/// stateful half of the kv-store interface. No PII ever crosses the WIT
+/// boundary: itinerary plans carry only opaque trip metadata.
+package z:trip-planner@0.1.0;
+
+world trip-planner {
+    import host:tenant/tenant-context@1.0.0;
+    import host:interfaces/logging@2.1.0;
+    import host:interfaces/kv-store@2.1.0;
+
+    export contracts;
+}
+
+interface contracts {
+    /// Standard 3-field envelope used by all contracts callable from the node.
+    record generic-input {
+        input:        option<list<u8>>,
+        user-profile: option<list<u8>>,
+        context:      option<list<u8>>,
+    }
+
+    /// Save a trip plan. Input (JSON): { ref, plan }
+    ///   ref   — caller-chosen itinerary id (opaque, not PII)
+    ///   plan  — JSON-serialised trip plan object
+    /// Output (JSON): { saved: true, ref }
+    save-itinerary: func(req: generic-input) -> result<list<u8>, string>;
+
+    /// Read a previously saved trip plan. Input (JSON): { ref }
+    /// Output (JSON): { ref, plan: <object> | null }
+    get-itinerary: func(req: generic-input) -> result<list<u8>, string>;
+
+    /// List every saved itinerary ref. Input (JSON): {}
+    /// Output (JSON): { refs: string[] }
+    list-itineraries: func(req: generic-input) -> result<list<u8>, string>;
+}

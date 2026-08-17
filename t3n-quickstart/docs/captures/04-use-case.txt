@@ -1,0 +1,25 @@
+
+[1] Connect and authenticate
+   OK   tenantDid = did:t3n:6e5663db0316b7636b0a40366a81082fcbb22c99
+
+[2] Register the trip-planner contract
+   OK   read 154506 bytes from ../z-trip-planner/target/wasm32-wasip2/release/z_trip_planner.wasm
+   OK   contract-register
+   OK   registered z:6e5663db0316b7636b0a40366a81082fcbb22c99:trip-planner as contract id 705
+   contracts now visible: {"contracts":["z:6e5663db0316b7636b0a40366a81082fcbb22c99:travel-contracts","z:6e5663db0316b7636b0a40366a81082fcbb22c99:trip-planner"]}
+
+[3] Provision the itineraries map for the contract
+   OK   map-create z:6e5663db0316b7636b0a40366a81082fcbb22c99:itineraries
+
+[4] Invoke the contract (self-call path)
+   OK   resolve contract version
+   OK   z:6e5663db0316b7636b0a40366a81082fcbb22c99:trip-planner @ 0.1.0
+   OK   agent-auth-update (self-grant)
+   OK   save-itinerary
+   OK   save-itinerary (second)
+   OK   get-itinerary trip-001
+   response: {"ref":"trip-001","plan":{"cabin_class":"economy","dates":"2026-11-15..2026-11-22","route":"LHR-JFK","travelers":1}}
+   OK   list-itineraries
+   response: {"refs":["trip-001","trip-002"]}
+
+Done.
